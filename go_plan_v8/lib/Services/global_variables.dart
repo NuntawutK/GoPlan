@@ -10,8 +10,8 @@ String? tripNameEdit='';
 String? startDateEdit='';
 String? endDateEdit='';
 String? tripImageEdit='';
-final splitted1 = startDateEdit!.split('/');
-final splitted2 = endDateEdit!.split('/');
+var splitted1 = startDateEdit!.split('/');
+var splitted2 = endDateEdit!.split('/');
 
 String? taskDetails='';
 String? taskTitles='';
@@ -27,5 +27,6 @@ String? stDate='';
 String? eDate='';
 String? dRan='';
 int? totalCosts=0;
+
 
 

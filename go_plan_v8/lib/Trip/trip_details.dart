@@ -215,14 +215,14 @@ class _TripDetailsScreenState extends State<TripDetailsScreen> {
                                                                             dateRan: dateRange.toString())));
                                                               },
                                                               child: Padding(
-                                                                padding: EdgeInsets
+                                                                padding: const EdgeInsets
                                                                     .only(
                                                                         left:
                                                                             20,
                                                                         top:
                                                                             20),
                                                                 child: Row(
-                                                                  children: [
+                                                                  children: const [
                                                                     Icon(
                                                                       Icons
                                                                           .mode_edit,
@@ -627,7 +627,7 @@ class _TripDetailsScreenState extends State<TripDetailsScreen> {
         ),
         onPressed: () {
           Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (context) => TripScreen()));
+              context, MaterialPageRoute(builder: (context) => const TripScreen()));
         },
       ),
       actions: [

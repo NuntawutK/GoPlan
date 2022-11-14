@@ -8,6 +8,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_plan_v8/Services/global_variables.dart';
 import 'package:go_plan_v8/Task/add_task_page.dart';
 import 'package:go_plan_v8/Trip/add_trip_edit.dart';
+import 'package:go_plan_v8/Trip/trip_details.dart';
 import 'package:go_plan_v8/Trip/trip_screen.dart';
 import 'package:go_plan_v8/Widgets/button.dart';
 import 'package:go_plan_v8/Widgets/task_widget.dart';
@@ -98,10 +99,12 @@ class _AddTripDesEditState extends State<AddTripDesEdit> {
                     IconButton(
                       onPressed: () {
                         setState(() {
-                          tripNameEdit = widget.tripTitle.toString();
-                          startDateEdit = widget.startDate.toString();
-                          endDateEdit = widget.endDate.toString();
+                          tripNameEdit = tripTitles.toString();
+                          startDateEdit = startDates.toString();
+                          endDateEdit = endDates.toString();
                           tripImageEdit = tripImage;
+                          splitted1 = startDateEdit!.split('/');
+                          splitted2 = endDateEdit!.split('/');
                           // print("test === "+widget.endDate.toString());
                         });
                         Navigator.pushReplacement(
@@ -112,7 +115,7 @@ class _AddTripDesEditState extends State<AddTripDesEdit> {
                                     tripTitle: widget.tripTitle,
                                     startDate: widget.startDate,
                                     endDate: widget.endDate,
-                                    dateRan: widget.dateRan)));
+                                    dateRan: dateRanges.toString())));
                       },
                       icon: Icon(Icons.create),
                       color: Colors.blueGrey,
@@ -431,7 +434,7 @@ class _AddTripDesEditState extends State<AddTripDesEdit> {
           child: GestureDetector(
             onTap: () {
               Navigator.pushReplacement(
-                  context, MaterialPageRoute(builder: (_) => TripScreen()));
+                  context, MaterialPageRoute(builder: (_) => const TripScreen()));
               Fluttertoast.showToast(
                 msg: "บันทึกทริปเรียบร้อยแล้ว",
                 toastLength: Toast.LENGTH_LONG,

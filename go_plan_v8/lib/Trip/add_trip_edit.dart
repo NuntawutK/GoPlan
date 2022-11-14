@@ -43,7 +43,7 @@ class _AddTripEditState extends State<AddTripEdit> {
   final TextEditingController _endDateController =
       TextEditingController(text: endDateEdit);
   final _formKey = GlobalKey<FormState>();
- 
+  
   bool _isLoading = false;
   DateTime? picked;
   Timestamp? strartDateTimeStamp;
@@ -242,7 +242,7 @@ class _AddTripEditState extends State<AddTripEdit> {
           tripImageUrl = tripImageEdit.toString();
         } else {
           final _tid = tripId;
-          trip = tripId;
+          trip = widget.tripIdEdit;
           final ref = FirebaseStorage.instance
               .ref()
               .child('tripImages')
@@ -251,6 +251,9 @@ class _AddTripEditState extends State<AddTripEdit> {
           tripImageUrl = await ref.getDownloadURL();
           print(tripImageUrl);
         }
+          print(startDateEdit);
+          print('sp'+ splitted1[0]);
+          print(splitted2[0]);
         await FirebaseFirestore.instance
             .collection('trips')
             .doc(widget.tripIdEdit)
@@ -260,7 +263,7 @@ class _AddTripEditState extends State<AddTripEdit> {
           'startDate': _startDateController.text,
           'endDate': _endDateController.text,
           'tripImage': tripImageUrl,
-          'dateRange': (dateRange.duration.inDays + 1),
+          'dateRange': (dateRange.duration.inDays)+1,
         });
         await Fluttertoast.showToast(
             msg: "บันทึกทริปเรียบร้อยแล้ว",

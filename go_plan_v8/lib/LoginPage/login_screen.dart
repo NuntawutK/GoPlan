@@ -71,9 +71,9 @@ class _LoginState extends State<Login> with TickerProviderStateMixin{
         // ignore: use_build_context_synchronously
         Navigator.canPop(context)?Navigator.pop(context) : null;
       }catch(error){
-        setState((){
-          _isLoading=false;
-        });
+        // setState((){
+        //   _isLoading=false;
+        // });
         if(error.toString() == "[firebase_auth/user-not-found] There is no user record corresponding to this identifier. The user may have been deleted."){
           GlobalMethod.showErrorDialog(error: "      ไม่พบบัญชีของท่านในระบบ \nกรุณาตรวจสอบบัญชีใหม่อีกครั้ง", ctx: context);
         }
@@ -107,7 +107,7 @@ class _LoginState extends State<Login> with TickerProviderStateMixin{
               'assets/images/goplan_logo_white.png',
               fit: BoxFit.fill,
             ),
-            errorWidget:  (context,url,error) => Icon(Icons.error),
+            errorWidget:  (context,url,error) => const Icon(Icons.error),
             width: double.infinity,
             height: double.infinity,
             fit: BoxFit.cover,
@@ -116,10 +116,10 @@ class _LoginState extends State<Login> with TickerProviderStateMixin{
             Container(
               color: Colors.black38,
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 60),
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 60),
                 child: ListView(
                   children: [
-                    Padding(padding: EdgeInsets.only(left: 80,right: 80),
+                    Padding(padding: const EdgeInsets.only(left: 80,right: 80),
                     child: Image.asset('assets/images/goplan_logo_white.png'),
                     ),
                     const SizedBox(height: 40),

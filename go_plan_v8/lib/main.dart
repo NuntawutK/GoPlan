@@ -62,7 +62,7 @@ class MyApp extends StatelessWidget {
             errorColor: Colors.white,
             fontFamily: 'Kanit',
           ),
-          home: UserState(),
+          home: const UserState(),
         );
       },
     );
